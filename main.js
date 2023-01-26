@@ -25,24 +25,18 @@ export class Trigger {
 
     if (!checked[key]) {
       checked[key] = {
-        value,
-        times: data.times,
+        times: 0,
       };
     }
 
-    if (checked[key]?.value != value) {
+    if (!value) {
       checked[key].times = 0;
-      checked[key].value = value;
     }
 
-    checked[key].times++;
     if (checked[key].times >= data.times) {
-      checked[key].times = 0;
-      return value;
-    } else {
-      return !value;
+      return true;
     }
 
-    //return !(await checkTrigger(data));
+    return false;
   };
 }
