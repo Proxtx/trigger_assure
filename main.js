@@ -31,6 +31,8 @@ export class Trigger {
 
     if (!value) {
       checked[key].times = 0;
+    } else {
+      checked[key].times++;
     }
 
     if (checked[key].times >= data.times) {
